@@ -11,7 +11,7 @@ const Layout = () => {
   const drawerWidth = expanded ? 220 : 50;
 
   return (
-    <Box sx={{ display: 'flex', position: 'relative', minHeight: '100vh',  }}>
+    <Box sx={{ display: 'flex', position: 'relative', minHeight: '88vh',  }}>
       <TopBar />
       {/* Left Sidebar */}
       <LeftMenuBar expanded={expanded} setExpanded={setExpanded} />
@@ -25,8 +25,9 @@ const Layout = () => {
           display: 'flex',
           flexDirection: 'column',
           transition: 'margin-left 0.3s ease', // Smooth transition for margin change
-          height: '100vh',
+          height: '88vhvh',
           width: `calc(100vw - ${drawerWidth}px)`, // Dynamically calculate width based on drawerWidth
+          margin: '130px 0 0 0px',
         }}
       >
         {/* Nested route content */}
