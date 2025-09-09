@@ -53,7 +53,7 @@ const drawerItems = [
           <img
             src={historyIcon}
             alt="Settlement History"
-            style={{ width: 18, height: 18 }}
+            style={{ width: 48, height: 48, color: "red" }}
           />
         ),
       },
@@ -104,7 +104,7 @@ const LeftMenuBar = ({ expanded, setExpanded }: LeftMenuBarProps) => {
           transition: "width 0.3s ease",
           overflow: "hidden",
           borderRight: "1px solid rgba(0,0,0,0.1)",
-          margin: "80px 0 0 40px",
+          margin: "130px 0 0 40px",
           borderRadius: "16px",
           display: "flex",
           flexDirection: "column",
@@ -237,7 +237,7 @@ const LeftMenuBar = ({ expanded, setExpanded }: LeftMenuBarProps) => {
           }}
         >
           <img src={homeIcon} alt="Home" style={{ width: 40, height: 40 }} />
-          <Typography style={{ fontWeight: "bold", color: "#F267270" }}>
+          <Typography style={{ fontWeight: "bold", color: "#F26727" }}>
             Bharat <br />
             Connect
           </Typography>
