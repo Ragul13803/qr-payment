@@ -53,7 +53,7 @@ const drawerItems = [
           <img
             src={historyIcon}
             alt="Settlement History"
-            style={{ width: 18, height: 18 }}
+            style={{ width: 48, height: 48, color: "red" }}
           />
         ),
       },
