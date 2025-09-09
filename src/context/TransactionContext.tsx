@@ -2,8 +2,8 @@ import React, { createContext, useContext, useState, useEffect } from 'react'
 import api from '../api'
 
 const TransactionContext = createContext({
-  transactions: []  as any[],
-  fetchTransactions: (pageNumber: number = 0) => {},
+  transactions: [] as any[],
+  fetchTransactions: (pageNumber: number) => {},
   page: 0,
   setPage: (page: number) => {},
   totalPages: 1,
@@ -25,16 +25,18 @@ export function TransactionProvider({ children }: { children: React.ReactNode })
   const fetchTransactions = async (pageNumber: number = 0) => {
     setLoading(true)
     setError(null)
+
     try {
-      const res = await api.get('/transaction_history', {
+      const res = await api.get('https://64.227.189.27/wallet/api/v1/transaction_history?service_id=111&page=0', {
         params: { service_id: 111, page: pageNumber }
       })
+
       const data = res.data
       const list = data?.data || data?.transactions || data?.payload || data || []
 
       if (Array.isArray(list)) {
         setTransactions(list)
-        setTotalPages(1)
+        setTotalPages(1)  // Adjust this logic to match how total pages are returned from the API
       } else if (Array.isArray(data?.data?.content)) {
         setTransactions(data.data.content)
         setTotalPages(data.data.totalPages ?? 1)
@@ -52,6 +54,11 @@ export function TransactionProvider({ children }: { children: React.ReactNode })
       setLoading(false)
     }
   }
+
+  // Fetch transactions when page number changes
+  useEffect(() => {
+    fetchTransactions(page)
+  }, [page])
 
   return (
     <TransactionContext.Provider
