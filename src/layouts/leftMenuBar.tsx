@@ -13,31 +13,59 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState } from "react";
 
 // Image Assets
-import homeIcon from '../assets/menu/B mnemonic_SVG 2.png';
-import QR from '../assets/menu/customer-service-help-svgrepo-com 3.png';
-import historyIcon from '../assets/menu/history.png';
-import profileIcon from '../assets/menu/profile.png';
+import homeIcon from "../assets/menu/B mnemonic_SVG 2.png";
+import QR from "../assets/menu/customer-service-help-svgrepo-com 3.png";
+import historyIcon from "../assets/menu/history.png";
+import profileIcon from "../assets/menu/profile.png";
 
 const drawerItems = [
-  { text: "Home", icon: <img src={homeIcon} alt="Home" style={{ width: 22, height: 22 }} />, route: "/home" },
-  { text: "QR", icon: <img src={QR} alt="QR" style={{ width: 22, height: 22 }} />, route: "/manageQR" },
+  {
+    text: "Home",
+    icon: <img src={homeIcon} alt="Home" style={{ width: 22, height: 22 }} />,
+    route: "/home",
+  },
+  {
+    text: "QR",
+    icon: <img src={QR} alt="QR" style={{ width: 22, height: 22 }} />,
+    route: "/manageQR",
+  },
   {
     text: "History",
-    icon: <img src={historyIcon} alt="History" style={{ width: 22, height: 22 }} />,
+    icon: (
+      <img src={historyIcon} alt="History" style={{ width: 22, height: 22 }} />
+    ),
     subItems: [
       {
         text: "Transaction History",
         route: "/transactions",
-        icon: <img src={historyIcon} alt="Transaction History" style={{ width: 18, height: 18 }} />
+        icon: (
+          <img
+            src={historyIcon}
+            alt="Transaction History"
+            style={{ width: 18, height: 18 }}
+          />
+        ),
       },
       {
         text: "Settlement History",
         route: "/settlements",
-        icon: <img src={historyIcon} alt="Settlement History" style={{ width: 18, height: 18 }} />
+        icon: (
+          <img
+            src={historyIcon}
+            alt="Settlement History"
+            style={{ width: 18, height: 18 }}
+          />
+        ),
       },
     ],
   },
-  { text: "Profile", icon: <img src={profileIcon} alt="Profile" style={{ width: 22, height: 22 }} />, route: "/profile" },
+  {
+    text: "Profile",
+    icon: (
+      <img src={profileIcon} alt="Profile" style={{ width: 22, height: 22 }} />
+    ),
+    route: "/profile",
+  },
 ];
 
 interface LeftMenuBarProps {
@@ -76,11 +104,11 @@ const LeftMenuBar = ({ expanded, setExpanded }: LeftMenuBarProps) => {
           transition: "width 0.3s ease",
           overflow: "hidden",
           borderRight: "1px solid rgba(0,0,0,0.1)",
-          margin: '80px 0 0 40px',
-          borderRadius: '16px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
+          margin: "80px 0 0 40px",
+          borderRadius: "16px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
         }}
       >
         {/* Menu List */}
@@ -109,7 +137,13 @@ const LeftMenuBar = ({ expanded, setExpanded }: LeftMenuBarProps) => {
                   >
                     {expanded ? (
                       <>
-                        <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                          }}
+                        >
                           {item.icon}
                           <ListItemText primary={item.text} />
                         </Box>
@@ -117,12 +151,18 @@ const LeftMenuBar = ({ expanded, setExpanded }: LeftMenuBarProps) => {
                       </>
                     ) : (
                       <Tooltip title={item.text} placement="right" arrow>
-                        <Box sx={{ display: "flex", alignItems: "center" }}>{item.icon}</Box>
+                        <Box sx={{ display: "flex", alignItems: "center" }}>
+                          {item.icon}
+                        </Box>
                       </Tooltip>
                     )}
                   </ListItem>
 
-                  <Collapse in={openHistory && expanded} timeout="auto" unmountOnExit>
+                  <Collapse
+                    in={openHistory && expanded}
+                    timeout="auto"
+                    unmountOnExit
+                  >
                     <List component="div" disablePadding sx={{ pl: 4 }}>
                       {item.subItems.map((sub, subIndex) => (
                         <ListItem
@@ -130,8 +170,14 @@ const LeftMenuBar = ({ expanded, setExpanded }: LeftMenuBarProps) => {
                           onClick={() => handleNavigation(sub.route)}
                           sx={{
                             cursor: "pointer",
-                            bgcolor: location.pathname === sub.route ? "#FFFFFF" : "transparent",
-                            color: location.pathname === sub.route ? "#42794A" : "#94CA9C",
+                            bgcolor:
+                              location.pathname === sub.route
+                                ? "#FFFFFF"
+                                : "transparent",
+                            color:
+                              location.pathname === sub.route
+                                ? "#42794A"
+                                : "#94CA9C",
                             borderRadius: "8px",
                             mb: 0.5,
                           }}
@@ -160,11 +206,15 @@ const LeftMenuBar = ({ expanded, setExpanded }: LeftMenuBarProps) => {
               >
                 {!expanded && (
                   <Tooltip title={item.text} placement="right" arrow>
-                    <Box sx={{ display: "flex", alignItems: "center" }}>{item.icon}</Box>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                      {item.icon}
+                    </Box>
                   </Tooltip>
                 )}
                 {expanded && (
-                  <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <Box
+                    sx={{ display: "flex", alignItems: "center", gap: "8px" }}
+                  >
                     {item.icon}
                     <ListItemText primary={item.text} />
                   </Box>
@@ -175,12 +225,24 @@ const LeftMenuBar = ({ expanded, setExpanded }: LeftMenuBarProps) => {
         </List>
 
         {/* Bottom Logo */}
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFFFFF', padding: '10px', margin: '2px', borderRadius: '0px  0px 12px 12px' }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "#FFFFFF",
+            padding: "10px",
+            margin: "2px",
+            borderRadius: "0px  0px 12px 12px",
+          }}
+        >
           <img src={homeIcon} alt="Home" style={{ width: 40, height: 40 }} />
-          <Typography style={{ fontWeight: 'bold', color: '#F267270',}}>Bharat <br />Connect</Typography>
+          <Typography style={{ fontWeight: "bold", color: "#F267270" }}>
+            Bharat <br />
+            Connect
+          </Typography>
         </Box>
       </Box>
-
     </>
   );
 };
