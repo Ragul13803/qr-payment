@@ -26,7 +26,7 @@ const ManageQR = () => {
         Manage QR/POS
       </Typography>
 
-            <Grid container spacing={2} sx={{ paddingX: 2, marginBottom: 2, width: '100%' }}>
+            <Grid  container spacing={2} sx={{ paddingX: 2, marginBottom: 2, width: '100%' }}>
 
         {/* Left Side: QR Card */}
         <Grid item xs={12} sm={6} md={6}>
