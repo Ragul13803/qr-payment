@@ -1,4 +1,4 @@
-import { Box, Typography, Grid, Card, CardContent, Button, Avatar, Divider, Tabs, Tab, List, ListItem, ListItemText, ListItemAvatar,
+import { Box, Typography, Grid, Card, Button, Divider, Tabs, Tab, List, ListItem, ListItemAvatar,
 } from "@mui/material";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
@@ -14,6 +14,7 @@ const ManageQR = () => {
 
 
   const handleTabChange = (event: any, newValue: any) => {
+    console.log(event)
     setQRTabValue(newValue);
   };
 
@@ -25,7 +26,8 @@ const ManageQR = () => {
         Manage QR/POS
       </Typography>
 
-      <Grid container spacing={4}>
+            <Grid  container spacing={2} sx={{ paddingX: 2, marginBottom: 2, width: '100%' }}>
+
         {/* Left Side: QR Card */}
         <Grid item xs={12} sm={6} md={6}>
           <Card variant="outlined" 
@@ -115,7 +117,7 @@ const ManageQR = () => {
 
     {qRTabValue === 'Active QR Codes' && <Box>
       <List>
-        {qrItems.map((item, index) => (
+        {qrItems.map((index) => (
           <>
             <ListItem key={index} sx={{ px: 0, display: 'flex', justifyContent: 'space-between' }}>
               
@@ -143,7 +145,7 @@ const ManageQR = () => {
 
     {qRTabValue === 'QR Code Requests' && <Box>
       <List>
-        {qrItems.map((item, index) => (
+        {qrItems.map((index) => (
           <>
             <ListItem key={index} sx={{ px: 0 }}>
               <ListItemAvatar>

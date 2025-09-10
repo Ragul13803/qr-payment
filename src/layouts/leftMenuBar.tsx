@@ -3,7 +3,6 @@ import {
   List,
   ListItem,
   ListItemText,
-  Tooltip,
   Collapse,
   Typography,
 } from "@mui/material";
@@ -68,35 +67,33 @@ const drawerItems = [
   },
 ];
 
-interface LeftMenuBarProps {
-  expanded: boolean;
-  setExpanded: React.Dispatch<React.SetStateAction<boolean>>;
-}
+// interface LeftMenuBarProps {
+//   expanded: boolean;
+//   setExpanded: React.Dispatch<React.SetStateAction<boolean>>;
+// }
 
-const LeftMenuBar = ({ expanded, setExpanded }: LeftMenuBarProps) => {
+const LeftMenuBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [logoutLoading, setLogoutLoading] = useState(false);
-  const [DialogOpen, setDialogOpen] = useState(false);
   const [openHistory, setOpenHistory] = useState(false);
 
   const handleNavigation = (route: string) => {
     if (route === "/login") {
-      setDialogOpen(true);
+      // setDialogOpen(true);
     } else {
       navigate(route);
     }
   };
 
-  const handleLogoutCancel = () => {
-    setDialogOpen(false);
-  };
+  // const handleLogoutCancel = () => {
+  //   setDialogOpen(false);
+  // };
 
   return (
     <>
       <Box
         sx={{
-          width: expanded ? "240px" : "50px",
+          width: "240px",
           height: "80vh",
           backgroundColor: "#42794A",
           boxSizing: "border-box",
@@ -129,40 +126,36 @@ const LeftMenuBar = ({ expanded, setExpanded }: LeftMenuBarProps) => {
                       bgcolor: isActive ? "#FFFFFF" : "transparent",
                       color: isActive ? "#42794A" : "#94CA9C",
                       borderRadius: "10px",
-                      pl: expanded ? "10px" : "7px",
+                      pl: "10px",
                       mb: 1,
                       display: "flex",
                       justifyContent: "space-between",
                     }}
                   >
-                    {expanded ? (
-                      <>
-                        <Box
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "8px",
-                          }}
-                        >
-                          {item.icon}
-                          <ListItemText primary={item.text} />
-                        </Box>
-                        {openHistory ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                      </>
-                    ) : (
+                    {/* {expanded ? ( */}
+                    <>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                        }}
+                      >
+                        {item.icon}
+                        <ListItemText primary={item.text} />
+                      </Box>
+                      {openHistory ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                    </>
+                    {/* ) : (
                       <Tooltip title={item.text} placement="right" arrow>
                         <Box sx={{ display: "flex", alignItems: "center" }}>
                           {item.icon}
                         </Box>
                       </Tooltip>
-                    )}
+                    )} */}
                   </ListItem>
 
-                  <Collapse
-                    in={openHistory && expanded}
-                    timeout="auto"
-                    unmountOnExit
-                  >
+                  <Collapse in={openHistory} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding sx={{ pl: 4 }}>
                       {item.subItems.map((sub, subIndex) => (
                         <ListItem
@@ -204,21 +197,19 @@ const LeftMenuBar = ({ expanded, setExpanded }: LeftMenuBarProps) => {
                   mb: 1,
                 }}
               >
-                {!expanded && (
+                {/* {!expanded && (
                   <Tooltip title={item.text} placement="right" arrow>
                     <Box sx={{ display: "flex", alignItems: "center" }}>
                       {item.icon}
                     </Box>
                   </Tooltip>
-                )}
-                {expanded && (
-                  <Box
-                    sx={{ display: "flex", alignItems: "center", gap: "8px" }}
-                  >
-                    {item.icon}
-                    <ListItemText primary={item.text} />
-                  </Box>
-                )}
+                )} */}
+                {/* {expanded && ( */}
+                <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  {item.icon}
+                  <ListItemText primary={item.text} />
+                </Box>
+                {/* )} */}
               </ListItem>
             );
           })}

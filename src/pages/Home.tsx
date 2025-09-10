@@ -59,7 +59,7 @@ export default function Home() {
                 padding: 2,
                 textAlign: "center",
                 height: '140px',
-                width: '300px',
+                width: '260px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -86,7 +86,7 @@ export default function Home() {
               border: "1px solid #d9d9d9",
               borderRadius: "12px",
               padding: 3,
-              width: '634px',
+              width: '550px',
               height: '310px',
             }}
           >
@@ -153,7 +153,7 @@ export default function Home() {
               border: "1px solid #d9d9d9",
               borderRadius: "12px",
               padding: 3,
-              width: '634px',
+              width: '550px',
               height: '310px',
 
             }}
@@ -187,7 +187,7 @@ export default function Home() {
               border: "1px solid #d9d9d9",
               borderRadius: "12px",
               padding: 3,
-              width: '634px',
+              width: '550px',
               height: '340px',
             }}
           >
@@ -223,7 +223,7 @@ export default function Home() {
               border: "1px solid #d9d9d9",
               borderRadius: "12px",
               padding: 3,
-              width: '634px',
+              width: '550px',
               height: '340px',
             }}
           >
