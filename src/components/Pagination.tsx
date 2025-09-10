@@ -1,16 +1,14 @@
-import React from 'react'
-
 export default function Pagination({
   page,
   onChange,
-  totalPages = 1
+  totalPages = 1,
 }: {
-  page: number
-  onChange: (newPage: number) => void
-  totalPages?: number
+  page: number;
+  onChange: (newPage: number) => void;
+  totalPages?: number;
 }) {
-  const prev = () => onChange(Math.max(0, page - 1))
-  const next = () => onChange(Math.min(totalPages - 1, page + 1))
+  const prev = () => onChange(Math.max(0, page - 1));
+  const next = () => onChange(Math.min(totalPages - 1, page + 1));
 
   return (
     <div className="flex items-center justify-between mt-4">
@@ -32,5 +30,5 @@ export default function Pagination({
         Next
       </button>
     </div>
-  )
+  );
 }

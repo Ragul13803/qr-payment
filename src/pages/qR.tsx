@@ -1,4 +1,4 @@
-import { Box, Typography, Grid, Card, CardContent, Button, Avatar, Divider, Tabs, Tab, List, ListItem, ListItemText, ListItemAvatar,
+import { Box, Typography, Grid, Card, Button, Divider, Tabs, Tab, List, ListItem, ListItemAvatar,
 } from "@mui/material";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
@@ -14,6 +14,7 @@ const ManageQR = () => {
 
 
   const handleTabChange = (event: any, newValue: any) => {
+    console.log(event)
     setQRTabValue(newValue);
   };
 
