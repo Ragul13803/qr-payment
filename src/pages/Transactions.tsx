@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const TransactionHistory = () => {
   const [transactionHistory, setTransactionHistory] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchTransactionHistory = async () => {
@@ -27,7 +27,7 @@ const TransactionHistory = () => {
         setTransactionHistory(response.data);  // Assuming the response is JSON
         setLoading(false);
       } catch (err) {
-        setError(err.message);
+        setError( 'Error fetching data');
         setLoading(false);
       }
     };
